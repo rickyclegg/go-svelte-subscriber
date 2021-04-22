@@ -1,12 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"go-svelte-subscriber/server"
+	"log"
+)
 
 func main() {
 	fmt.Printf("Starting app")
 
-	//server := server.NewHTTPServer()
-	//if err := http.ListenAndServe(":3000", server); err != nil {
-	//	log.Fatal("Cannot listen and serve", err)
-	//}
+	svr := server.NewHTTPServer(":3000")
+	log.Fatal(svr.ListenAndServe())
 }
